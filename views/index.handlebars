@@ -1,0 +1,38 @@
+<h1>Burger Logger!</h1>
+
+<h2>Pick a Burger to Eat!</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{> cats/cat-block sleep=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Burgers you've eaten!</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+     <li>{{burger_name}}</li>
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Eat another Burger?!</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Burger Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <div class="form-group">
+    {{!-- <label for="hungry">Hungry?</label><br> --}}
+    <input type="radio" name="burger_devoured" value="1" checked> I have eaten!<br>
+    <input type="radio" name="burger_devoured" value="0">I have not eaten!
+  </div>
+
+  <button type="submit">Add Burger</button>
+</form>
